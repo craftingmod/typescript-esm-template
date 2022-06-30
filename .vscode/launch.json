@@ -1,0 +1,54 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch via ts-node",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--nolazy",
+        "--loader",
+        "ts-node/esm",
+      ],
+      "args": [
+        "src/index.ts",
+        "--debug",
+      ],
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "internalConsole",
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ],
+      "env": {
+        // Use when debug fn
+        "DEBUG": "",
+      }
+    },
+    {
+      "name": "Launch with compile",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [],
+      "args": [
+        "build/index.js",
+        "--debug",
+      ],
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "internalConsole",
+      "preLaunchTask": "buildTS",
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ],
+      "env": {
+        // Use when debug fn
+        "DEBUG": "",
+      }
+    }
+  ]
+}
